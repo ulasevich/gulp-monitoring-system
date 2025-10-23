@@ -6,6 +6,18 @@
     background-position: center center;
     background-size: contain;
 }
+.svg-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    stroke: currentColor;
+    &--fill {
+        fill: currentColor;
+    }
+}
+.icon-item {
+    display: inline-flex;
+    gap: 0.5rem;
+}
 
 .icon--map {
     background-image: url("../img/icons/map.svg");

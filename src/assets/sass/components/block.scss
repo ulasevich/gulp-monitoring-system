@@ -8,10 +8,11 @@
 
 .block {
     position: relative;
-    padding: clamp(1.25rem, 1.875vw, 1.875rem);
-    border-radius: 30px;
-    background-color: var(--bg-color-primary);
+    padding: clamp(1.25rem, 2vw, 2rem);
+    border-radius: 1rem;
+    background-color: #191919;
     color: var(--font-color-primary);
+    border: 1px solid var(--border-color-primary);
     &__content {
         height: 100%;
         position: relative;
