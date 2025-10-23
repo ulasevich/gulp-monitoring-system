@@ -1,0 +1,20 @@
+@use '../base/mixins';
+/*------------------*
+# Footer
+*------------------*/
+.footer {
+    &-row {
+        padding: 2rem 0 4rem;
+        &__logo {
+        }
+        &__contacts {
+        }
+        &__copyright {
+        }
+    }
+    @include mixins.mobile-576 {
+        &-row {
+            padding: 2rem 0;
+        }
+    }
+}

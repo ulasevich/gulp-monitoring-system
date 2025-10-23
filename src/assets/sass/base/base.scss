@@ -1,0 +1,151 @@
+@use "../base/mixins";
+/*------------------*
+# Base
+*------------------*/
+
+html {
+    min-height: 100%;
+    font-size: var(--font-size-primary);
+    scroll-behavior: smooth;
+}
+body {
+    display: grid;
+    grid-gap: 0;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
+    font-family: var(--font-family-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: var(--bg-color-primary);
+    color: var(--font-color-primary);
+}
+
+.header {
+    grid-area: header;
+}
+.main {
+    grid-area: main;
+}
+.footer {
+    grid-area: footer;
+}
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+.no-transition {
+    transition: none;
+}
+.relative {
+    position: relative;
+}
+.main-container {
+    max-width: calc(var(--main-container-width) + 2 * var(--m-c-padding));
+    padding-left: var(--m-c-padding);
+    padding-right: var(--m-c-padding);
+    &--big-paddings {
+        --m-c-padding: 3.75rem;
+    }
+    @include mixins.mobile-576 {
+        --m-c-padding: 1.25rem;
+    }
+    @include mixins.mobile-360 {
+        --m-c-padding: 0.9375rem;
+    }
+}
+
+.max-width-1300 {
+    max-width: 81.25rem;
+}
+.max-width-1200 {
+    max-width: 75rem;
+}
+.max-width-1100 {
+    max-width: 68.75rem;
+}
+.max-width-1000 {
+    max-width: 62.5rem;
+}
+.max-width-500 {
+    max-width: 31.25rem;
+}
+.max-width-250 {
+    max-width: 15.625rem;
+}
+
+.mt-10 {
+    margin-top: 10rem;
+    @include mixins.mobile-576 {
+        margin-top: 5rem;
+    }
+}
+.mb-10 {
+    margin-bottom: 10rem;
+    @include mixins.mobile-576 {
+        margin-bottom: 5rem;
+    }
+}
+
+.pt-5 {
+    @include mixins.mobile-576 {
+        padding-top: 1rem !important;
+    }
+}
+
+.section {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+    max-width: 100vw; /* чтобы не было багов в slick слайдере */
+    &__content {
+        position: relative;
+        padding: 5rem 0;
+        width: 100%;
+    }
+    &--full-height {
+        min-height: 100vh;
+    }
+    &--big-height {
+        min-height: 75dvh;
+        @media (orientation: portrait) {
+            min-height: 50dvh;
+        }
+    }
+    &--bg-image {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    &--medium-padding &__content {
+        padding: 60px 0;
+        @include mixins.mobile-576 {
+            padding: 20px 0;
+        }
+        @include mixins.mobile-360 {
+            padding: 15px 0;
+        }
+    }
+    &--index &__content {
+        padding: 12rem 0;
+        @include mixins.mobile-576 {
+            padding: 8rem 0 16rem;
+        }
+    }
+}
+
+.section__bg {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: top left;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+}

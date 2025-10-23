@@ -1,0 +1,170 @@
+@use '../base/mixins';
+/*------------------*
+# Header
+*------------------*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-color-primary);
+    padding: 1.5rem 0 1.5rem;
+    // border-bottom: 1px solid var(--color-primary);
+    z-index: 100;
+    &-row {
+        column-gap: 1.5rem;
+        &__logo {
+            order: 1;
+            img {
+                max-width: 8.5rem;
+            }
+        }
+        &__menu {
+            order: 2;
+        }
+        &__call-desktop {
+            order: 3;
+        }
+        &__menu-toggle {
+            order: 4;
+            display: none;
+        }
+    }
+    @include mixins.desktop-1600 {
+        &-row {
+            &__logo {
+                flex-basis: 0;
+                flex-grow: 1;
+                max-width: 100%;
+            }
+            &__menu {
+                order: 5;
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+            &__menu-toggle {
+                display: block;
+            }
+        }
+    }
+    @include mixins.mobile-576 {
+        padding: 1.25rem 0 1.25rem;
+        &-row {
+            &__call-desktop {
+                display: none;
+            }
+        }
+    }
+}
+.main-menu {
+    overflow: auto;
+    transition-duration: 0.5s;
+    transition-property: max-height;
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem 2rem;
+        li {
+            a.link {
+                color: #B8B8B8;
+                font-size: 0.75rem;
+                font-weight: 500;
+                text-decoration: none;
+                text-transform: uppercase;
+                transition: 0.3s;
+                transition-property: color;
+                &:hover, &.active {
+                    color: var(--color-primary);
+                }
+                &.active {
+                    text-decoration: underline;
+                    text-underline-offset: 5px;
+                }
+            }
+        }
+    }
+    &__call-mobile {
+        display: none;
+    }
+    .site--menu-open & {
+        max-height: 75vh;
+    }
+    @include mixins.desktop-1600 {
+        max-height: 0;
+        ul {
+            gap: 1.5rem 3rem;
+            padding-top: 4rem;
+            padding-bottom: 1rem;
+            justify-content: left;
+            li {
+                a.link {
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                    text-transform: none;
+                }
+            }
+        }
+    }
+    @include mixins.mobile-576 {
+        ul {
+            li {
+                width: 100%;
+                a.link {
+                    font-size: 18px;
+                }
+            }
+        }
+        &__call-mobile {
+            display: list-item;
+        }
+    }
+}
+
+.main-menu-button {
+    display: inline-flex;
+    justify-content: space-around;
+    flex-direction: column;
+    vertical-align: middle;
+    padding: 0;
+    border: none;
+    background: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    &__line {
+        display: block;
+        height: 2px;
+        background-color: var(--color-black);
+        transition: 0.3s;
+        transition-property: transform, opacity, width;
+        &:nth-child(1) {
+            width: 100%;
+        }
+        &:nth-child(2) {
+            width: 75%;
+        }
+        &:nth-child(3) {
+            width: 50%;
+        }
+    }
+    &:hover &__line {
+        &:nth-child(2) {
+            transform: translateX(33%);
+        }
+        &:nth-child(3) {
+            transform: translateX(100%);
+        }
+    }
+    &.active &__line {
+        &:nth-child(1) {
+            transform: translateY(10px) rotate(45deg);
+        }
+        &:nth-child(2) {
+            opacity: 0;
+        }
+        &:nth-child(3) {
+            width: 100%;
+            transform: translateY(-10px) rotate(-45deg);
+        }
+    }
+}

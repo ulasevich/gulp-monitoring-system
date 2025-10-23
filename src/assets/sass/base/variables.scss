@@ -1,0 +1,40 @@
+@use '../base/mixins';
+/*------------------*
+# CSS Variables
+*------------------*/
+:root {
+    --color-primary: #00CC66;
+    --color-primary-hover: #E3C199;
+    --color-primary-active: #E3C099;
+
+    --color-black: #2D2D2D;
+    --color-white: #FFFFFF;
+    --color-gray: #969696;
+    --color-red: #e4666b;
+    --color-green: var(--color-primary);
+
+    --bg-color-primary: #141414;
+    --bg-color-white: #FFFFFF;
+    --bg-color-gray: #F5F5F5;
+
+    --border-color-primary: #DDDDDD;
+    
+    --font-family-primary: 'Raleway';
+    --font-size-primary: 100%;
+    --font-size-small: 0.8125rem;
+    --font-color-primary: var(--color-white);
+
+    --btn-height: 2rem;
+    --btn-height-medium: 3rem;
+    --btn-height-big: 4rem;
+
+    --main-container-width: 80rem;
+    --m-c-padding: 1.875rem;
+
+    @include mixins.display-34d {
+        --font-size-primary: 175%;
+    }
+    @include mixins.display-4K {
+        --font-size-primary: 200%;
+    }
+}

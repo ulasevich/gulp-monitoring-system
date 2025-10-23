@@ -1,0 +1,74 @@
+<div class="header-row row align-items-center no-gutters">
+    <div class="col header-row__menu">
+        {% include "nav.html" %}
+    </div>
+
+    <div class="col-auto header-row__call-desktop">
+        <button type="button" class="button" onclick="call_me_dialog.showModal();">Заказать демонстрацию</button>
+    </div>
+
+    <div class="col-auto header-row__menu-toggle">
+        <button type="button" class="main-menu-button js--main-menu-button">
+            <span class="main-menu-button__line"></span>
+            <span class="main-menu-button__line"></span>
+            <span class="main-menu-button__line"></span>
+        </button>
+    </div>
+</div>
+
+<dialog id="call_me_dialog" class="dialog--size-medium">
+    <div class="block block--bg-color-gray block--padding-big">
+        <button class="dialog-close-button" onclick="call_me_dialog.close();" aria-label="Закрыть"></button>
+        <div class="block__content">
+            <form action="/call-me-form-check.php" method="post" name="CALL_ME_FORM">
+                <input type="hidden" name="type" value="CALL_ME_FORM" />
+                <div class="row form-row no-gutters">
+                    <div class="col-12 hidden">
+                        <div class="text-field">
+                            <input type="text" name="company" placeholder="Компания" />
+                        </div>
+                    </div>
+                    
+                    <div class="col-12">
+                        <div class="text-field">
+                            <input type="text" name="name" placeholder="Имя Фамилия *" required />
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="text-field">
+                            <input type="text" name="phone" placeholder="Телефон *" required />
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="textarea-field">
+                            <textarea name="message" rows="4" placeholder="Короткое сообщение"></textarea>
+                            <div class="textarea-field__border"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="size-smaller">Нажимая на кнопку отправить вы даете согласие на обработку персональных данных</div>
+                    </div>
+
+                    <div class="col-12">
+                        <button type="submit" class="button uppercase">Отправить</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</dialog>
+
+
+<dialog id="call_me_form_response_dialog" class="dialog--size-medium">
+    <div class="block block--bg-color-gray block--padding-big">
+        <button class="dialog-close-button" onclick="call_me_form_response_dialog.close();" aria-label="Закрыть"></button>
+        <div class="block__content">
+            <p>Ваш запрос успешно отправлен</p>
+            <h2>Наши специалисты скоро свяжутся с Вами!</h2>
+            <button type="button" class="button" onclick="call_me_form_response_dialog.close();">Отлично!</button>
+        </div>
+    </div>
+</dialog>
