@@ -8,8 +8,8 @@
     left: 0;
     right: 0;
     background-color: var(--bg-color-primary);
-    padding: 1.5rem 0 1.5rem;
-    // border-bottom: 1px solid var(--color-primary);
+    padding: 0.625rem 0 0.625rem;
+    border-bottom: 1px solid var(--border-color-primary);
     z-index: 100;
     &-row {
         column-gap: 1.5rem;
@@ -48,7 +48,6 @@
         }
     }
     @include mixins.mobile-576 {
-        padding: 1.25rem 0 1.25rem;
         &-row {
             &__call-desktop {
                 display: none;
@@ -66,11 +65,10 @@
         gap: 0.8rem 2rem;
         li {
             a.link {
-                color: #B8B8B8;
+                color: var(--font-color-gray);
                 font-size: 0.75rem;
                 font-weight: 500;
                 text-decoration: none;
-                text-transform: uppercase;
                 transition: 0.3s;
                 transition-property: color;
                 &:hover, &.active {
@@ -134,7 +132,7 @@
     &__line {
         display: block;
         height: 2px;
-        background-color: var(--color-black);
+        background-color: var(--color-primary);
         transition: 0.3s;
         transition-property: transform, opacity, width;
         &:nth-child(1) {

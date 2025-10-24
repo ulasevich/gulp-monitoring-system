@@ -45,39 +45,6 @@
     &--bg-image &__content {
         z-index: 2;
     }
-    &--bg-clipart-corner {
-        overflow: hidden;
-        &:before {
-            display: block;
-            content: '';
-            position: absolute;
-            width: 70%;
-            height: 70%;
-            max-height: 13.75rem;
-            bottom: 0;
-            right: 0;
-            background-repeat: no-repeat;
-            background-position: bottom right;
-            background-size: contain;
-            @include mixins.mobile-576 {
-                width: 90%;
-            }
-        }
-    }
-    &--bg-clipart-overflow {
-        &:before {
-            display: block;
-            content: '';
-            position: absolute;
-            background-repeat: no-repeat;
-            background-size: contain;
-        }
-    }
-    &--bg-clipart-max-height-2 {
-        &:before {
-            max-height: 15rem;
-        }
-    }
     &--bg-color-white {
         background-color: var(--color-white);
     }
@@ -87,9 +54,7 @@
     }
     &--bg-color-gray {
         background-color: var(--bg-color-gray);
-    }
-    &--bg-gradient-primary {
-        background: linear-gradient(180deg, rgba(212, 203, 193, 0.3) 0%, #F7E6D2 100%);
+        color: var(--font-color-secondary);
     }
     &--padding-big {
         padding: clamp(1.25rem, 3.75vw, 3.75rem);
@@ -97,12 +62,7 @@
     &--min-height-auto {
         min-height: auto !important;
     }
-    @include mixins.mobile-576 {
-        border-radius: 20px;
-    }
 }
-
-
 
 .block-column {
     display: flex;

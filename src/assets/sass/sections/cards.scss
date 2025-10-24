@@ -1,0 +1,99 @@
+@use "../base/mixins";
+/*------------------*
+# Cards
+*------------------*/
+.flip-cards {
+    column-count: 3;
+    column-gap: clamp(1.25rem, 2vw, 2rem);
+    margin: 3rem 0 1rem;
+    @include mixins.mobile-992 {
+        column-count: 2;
+    }
+    @include mixins.mobile-576 {
+        column-count: 1;
+    }
+}
+
+.flip-card-item {
+    perspective: 1000px;
+    transition: 0.5s;
+    break-inside: avoid;
+    margin-bottom: clamp(1.25rem, 2vw, 2rem);
+}
+
+.flip-card-item-content {
+    position: relative;
+    /*overflow: hidden;*/
+    height: 100%;
+    transition: 1s;
+    transform-style: preserve-3d;
+}
+
+.flip-card-item-icon {
+    margin-bottom: 1rem;
+}
+
+html:not(.is_mobile) .flip-card-item-content:hover .flip-card-item-back,
+.flip-card-item-content.active .flip-card-item-back {
+    opacity: 1;
+    transform: rotateY(0deg);
+    /*transform: translate(0, 0);*/
+}
+html:not(.is_mobile) .flip-card-item-content:hover .flip-card-item-front,
+.flip-card-item-content.active .flip-card-item-front {
+    transform: rotateY(-180deg);
+}
+
+.flip-card-item-front,
+.flip-card-item-back {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: 1s;
+}
+
+.flip-card-item-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.flip-card-item-back {
+    position: relative;
+    height: 100%;
+    transition-property: opacity, transform;
+    transform: rotateY(180deg);
+    opacity: 0;
+    min-height: 10rem;
+}
+
+/*------------------*
+# Steps
+*------------------*/
+.architecture-steps {
+    column-count: 2;
+    column-gap: clamp(1.25rem, 2vw, 2rem);
+    margin: 3rem 0 1rem;
+    @include mixins.mobile-992 {
+        column-count: 1;
+    }
+}
+
+.architecture-step {
+    break-inside: avoid;
+    margin-bottom: clamp(1.25rem, 2vw, 2rem);
+}
+
+.architecture-step-1 {
+    order: 1;
+}
+.architecture-step-2 {
+    order: 3;
+}
+.architecture-step-3 {
+    order: 4;
+}
+.architecture-step-4 {
+    order: 2;
+}

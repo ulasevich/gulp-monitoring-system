@@ -3,13 +3,19 @@
 # Footer
 *------------------*/
 .footer {
+    padding: 2rem 0 4rem;
     &-row {
-        padding: 2rem 0 4rem;
+        &__social {
+            padding-bottom: 4rem;
+        }
         &__logo {
+            padding-right: 2rem;
+            padding-bottom: 2rem;
         }
         &__contacts {
         }
         &__copyright {
+            padding-top: 4rem;
         }
     }
     @include mixins.mobile-576 {
