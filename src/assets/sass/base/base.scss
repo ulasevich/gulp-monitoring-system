@@ -122,6 +122,10 @@ body {
         background-repeat: no-repeat;
         background-size: cover;
     }
+    &--bg-color-primary {
+        background-color: var(--color-primary);
+        color: var(--font-color-secondary);
+    }
     &--medium-padding &__content {
         padding: 60px 0;
         @include mixins.mobile-576 {
