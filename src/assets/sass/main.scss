@@ -16,11 +16,13 @@
 @use "./components/form";
 @use "./components/dialog";
 @use "./components/icon";
+@use "./components/clipart";
 
 // Sections
 
 @use "./sections/header";
 @use "./sections/footer";
+@use "./sections/index";
 @use "./sections/cards";
 @use "./sections/faq";
 

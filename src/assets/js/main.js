@@ -27,6 +27,55 @@ function detectmob() {
 }
 
 
+var getElementsInArea = (function(docElm){
+    var viewportHeight = docElm.clientHeight;
+
+    return function(e, opts){
+        var found = [], i;
+        
+        if( e && e.type == 'resize' )
+            viewportHeight = docElm.clientHeight;
+
+        for( i = opts.elements.length; i--; ){
+            var elm        = opts.elements[i],
+                pos        = elm.getBoundingClientRect(),
+                topPerc    = pos.top    / viewportHeight * 100,
+                bottomPerc = pos.bottom / viewportHeight * 100,
+                middle     = (topPerc + bottomPerc)/2,
+                inViewport = middle > opts.zone[1] && 
+                             middle < (100-opts.zone[1]);
+
+            elm.classList.toggle(opts.markedClass, inViewport);
+
+            if( inViewport )
+                found.push(elm);
+        }
+    };
+})(document.documentElement);
+
+
+
+function checkFlipCards(e){
+    getElementsInArea(e, {
+        elements    : document.querySelectorAll('.is_mobile .flip-card-item-content'), 
+        markedClass : 'active',
+        zone        : [20, 20] // percentage distance from top & bottom
+    });
+}
+
+
+// различный дополнительный функционал
+App.Other = function () {
+	if (App.is_mobile) {
+		$('html').addClass('is_mobile');
+
+		if ($('.is_mobile .flip-card-item-content').length) {
+			window.addEventListener('scroll', checkFlipCards);
+		}
+	} 
+};
+
+
 App.HeaderMenu = function () {
     var class_site_menu_open = 'site--menu-open';
 	$('.js--main-menu-button').on('click', function() {
@@ -215,7 +264,8 @@ App.PhoneMasks = function () {
 };
 
 
-$(document).ready(function(){
+$(document).ready(function() {
+	App.Other();
 	App.HeaderMenu();
 	App.Carousels();
 	App.ContactForm();

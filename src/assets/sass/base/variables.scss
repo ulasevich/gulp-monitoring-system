@@ -30,13 +30,19 @@
     --btn-height-medium: 3rem;
     --btn-height-big: 4rem;
 
-    --main-container-width: 80rem;
-    --m-c-padding: 1.875rem;
+    --main-container-width: 72rem;
+    --m-c-padding: 4rem;
 
     @include mixins.display-34d {
         --font-size-primary: 175%;
     }
     @include mixins.display-4K {
         --font-size-primary: 200%;
+    }
+    @include mixins.mobile-992 {
+        --m-c-padding: 2rem;
+    }
+    @include mixins.mobile-576 {
+        --m-c-padding: 1.25rem;
     }
 }

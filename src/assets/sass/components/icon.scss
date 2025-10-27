@@ -9,14 +9,17 @@
 .svg-icon {
     width: 1.5rem;
     height: 1.5rem;
-    stroke: currentColor;
     &--fill {
         fill: currentColor;
+    }
+    &--stroke {
+        stroke: currentColor;
     }
 }
 .icon-item {
     display: inline-flex;
     gap: 0.5rem;
+    align-items: center;
 }
 
 .icon--map {

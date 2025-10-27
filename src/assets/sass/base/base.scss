@@ -18,6 +18,7 @@ body {
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 1fr;
     font-family: var(--font-family-primary);
+    line-height: 1.25;
     min-height: 100vh;
     overflow-x: hidden;
     background-color: var(--bg-color-primary);
@@ -48,17 +49,14 @@ body {
     max-width: calc(var(--main-container-width) + 2 * var(--m-c-padding));
     padding-left: var(--m-c-padding);
     padding-right: var(--m-c-padding);
-    &--big-paddings {
-        --m-c-padding: 3.75rem;
-    }
-    @include mixins.mobile-576 {
-        --m-c-padding: 1.25rem;
-    }
-    @include mixins.mobile-360 {
-        --m-c-padding: 0.9375rem;
-    }
 }
 
+.flex {
+    display: flex;
+}
+.display-block {
+    display: block;
+}
 .max-width-1300 {
     max-width: 81.25rem;
 }
@@ -111,12 +109,6 @@ body {
     &--full-height {
         min-height: 100vh;
     }
-    &--big-height {
-        min-height: 75dvh;
-        @media (orientation: portrait) {
-            min-height: 50dvh;
-        }
-    }
     &--bg-image {
         background-position: center center;
         background-repeat: no-repeat;
@@ -133,12 +125,6 @@ body {
         }
         @include mixins.mobile-360 {
             padding: 15px 0;
-        }
-    }
-    &--index &__content {
-        padding: 12rem 0;
-        @include mixins.mobile-576 {
-            padding: 8rem 0 16rem;
         }
     }
 }

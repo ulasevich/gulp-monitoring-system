@@ -1,0 +1,44 @@
+.clipart {
+    display: block;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    max-width: 100%;
+}
+
+.clipart--camera {
+    aspect-ratio: 1 / 1;
+    background-image: url("../img/clipart/camera.svg");
+    background-position: top right;
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    width: 7rem;
+}
+.clipart--online-video-monitoring {
+    aspect-ratio: 1.6 / 1;
+    width: 17rem;
+    background-image: url("../img/clipart/online-video-monitoring.svg");
+}
+.clipart--info-security {
+    aspect-ratio: 1;
+    width: 12rem;
+    background-image: url("../img/clipart/info-security.svg");
+}
+.clipart--attendance-control {
+    aspect-ratio: 1.5 / 1;
+    width: 19rem;
+    background-image: url("../img/clipart/attendance-control.svg");
+}
+.clipart--data-sources {
+    aspect-ratio: 1.5 / 1;
+    width: 28rem;
+    background-image: url("../img/clipart/data-sources.svg");
+    background-position: bottom center;
+    margin-bottom: calc(clamp(1.25rem, 2vw, 2rem) * (-1));
+}
+.clipart--control-center {
+    aspect-ratio: 1 / 1;
+    width: 14rem;
+    background-image: url("../img/clipart/control-center.svg");
+}

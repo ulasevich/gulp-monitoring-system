@@ -1,0 +1,54 @@
+@use '../base/mixins';
+/*------------------*
+# Index page
+*------------------*/
+.index-cover {
+    aspect-ratio: 3 / 1;
+    margin: 4rem 0 3rem;
+    border-radius: 1rem;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("../img/bg/index-cover.webp");
+    @include mixins.mobile-992 {
+        aspect-ratio: 2 / 1;
+        background-image: url("../img/bg/index-cover-small.webp");
+    }
+}
+
+.index-key-values {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+.index-key-value {
+    white-space: nowrap;
+    &:after {
+        display: block;
+        content: '';
+        height: 1.5rem;
+        width: 1px;
+        background-color: currentColor;
+        margin-left: 1rem;
+    }
+    &:last-child {
+        &:after {
+            display: none;
+        }
+    }
+    @include mixins.mobile-576 {
+        &:after {
+            display: none;
+        }
+    }
+}
+
+.video {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid var(--border-color-primary);
+    border-radius: 1rem;
+    max-width: 100%;
+}
