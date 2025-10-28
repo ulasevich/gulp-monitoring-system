@@ -86,19 +86,61 @@ html:not(.is_mobile) .flip-card-item-content:hover .flip-card-item-front,
 }
 
 .architecture-step {
+    position: relative;
     break-inside: avoid;
     margin-bottom: clamp(1.25rem, 2vw, 2rem);
+    &:after {
+        display: block;
+        content: '';
+        position: absolute;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 2;
+        @include mixins.mobile-992 {
+            display: none;
+        }
+    }
 }
 
 .architecture-step-1 {
-    order: 1;
+    &:after {
+        width: 4.2rem;
+        aspect-ratio: 1.63 / 1;
+        top: 3rem;
+        right: -3rem;
+        background-image: url("../img/clipart/curve-arrow-right.svg");
+    }
 }
 .architecture-step-2 {
-    order: 3;
+    &:after {
+        width: 1.3rem;
+        aspect-ratio: 1 / 4;
+        bottom: -4rem;
+        right: 4rem;
+        background-image: url("../img/clipart/curve-arrow-down.svg");
+    }
 }
 .architecture-step-3 {
-    order: 4;
+    &:after {
+        width: 5.4rem;
+        aspect-ratio: 2 / 1;
+        bottom: -1.5rem;
+        left: -3.5rem;
+        background-image: url("../img/clipart/curve-arrow-left.svg");
+    }
 }
 .architecture-step-4 {
-    order: 2;
+}
+.architecture-step-4-mobile {
+    display: none;
+}
+
+@include mixins.mobile-992 {
+    .architecture-step-4 {
+        display: none;
+    }
+    .architecture-step-4-mobile {
+        display: block;
+    }
 }
