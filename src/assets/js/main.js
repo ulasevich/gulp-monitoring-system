@@ -65,7 +65,7 @@ function checkFlipCards(e){
 
 
 // различный дополнительный функционал
-App.Other = function () {
+App.Main = function () {
 	if (App.is_mobile) {
 		$('html').addClass('is_mobile');
 
@@ -265,7 +265,7 @@ App.PhoneMasks = function () {
 
 
 $(document).ready(function() {
-	App.Other();
+	App.Main();
 	App.HeaderMenu();
 	App.Carousels();
 	App.ContactForm();

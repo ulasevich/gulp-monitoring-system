@@ -79,7 +79,7 @@ html:not(.is_mobile) .flip-card-item-content:hover .flip-card-item-front,
 .architecture-steps {
     column-count: 2;
     column-gap: clamp(1.25rem, 2vw, 2rem);
-    margin: 3rem 0 1rem;
+    margin: 3rem 0 0;
     @include mixins.mobile-992 {
         column-count: 1;
     }

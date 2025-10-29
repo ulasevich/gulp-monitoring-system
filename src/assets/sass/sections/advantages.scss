@@ -1,0 +1,166 @@
+@use "../base/mixins";
+/*------------------*
+# FAQ (accordion)
+*------------------*/
+.advantages-container {
+    display: flex;
+    position: relative;
+    border-radius: 0;
+    border: none;
+    padding: 0;
+    background-color: var(--bg-color-black-secondary);
+    margin: 3rem 0 3rem;
+    overflow: hidden;
+}
+
+.accordion {
+    padding: 1.25rem clamp(1rem, 1.5vw, 1.5rem);
+    border: 1px solid var(--border-color-primary);
+    margin-top: -1px;
+    input[type='radio'] {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+        &:checked {
+            & + .accordion__heading .accordion__switch {
+                color: var(--color-primary);
+            }
+            html.is_mobile & + .accordion__heading .accordion__switch .accordion__switch__arrow {
+                transform: rotate(90deg);
+            }
+            & ~ .accordion__content {
+                grid-template-rows: 1fr;
+            }
+            html:not(.is_mobile) & ~ .accordion__content {
+                opacity: 1;
+                z-index: 1;
+            }
+        }
+    }
+    &__heading {
+        margin: 0;
+    }
+    &__switch {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        transition-duration: 0.5s;
+        transition-property: opacity;
+        text-decoration: none;
+        margin: 0;
+        color: var(--color-gray);
+        cursor: pointer;
+        &__icon {
+            display: block;
+            flex: 0 0 auto;
+        }
+        &__text {
+            transition: color 0.5s;
+            font-size: 1rem;
+            font-weight: 400;
+            flex: 1 1 0;
+        }
+        &__arrow {
+            display: block;
+            position: relative;
+            flex: 0 0 auto;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            transform-origin: center;
+            background-image: url("../img/icons/map.svg");
+            transition-duration: 0.5s;
+            transition-property: transform;
+        }
+        &:hover {
+            opacity: 1;
+        }
+    }
+    &__content {
+        display: grid;
+        grid-template-rows: 0fr;
+        overflow: hidden;
+        transition: 0.5s;
+        transition-property: grid-template-rows, opacity;
+        &__body {
+            overflow: hidden;
+            font-size: 1.125rem;
+            html.is_mobile &:before {
+                display: block;
+                content: '';
+                height: 1.5rem;
+            }
+        }
+        html:not(.is_mobile) &__body {
+            overflow: auto;
+        }
+    }
+
+    html:not(.is_mobile) &__content {
+        position: absolute;
+        width: 55%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        grid-template-rows: 1fr;
+        opacity: 0;
+        // overflow: visible;
+        padding: clamp(1.25rem, 2vw, 2rem);
+    }
+}
+
+.accordions-column {
+    flex: 0 0 100%;
+}
+
+.advantage-cover {
+    aspect-ratio: 2.2 / 1;
+    margin: 0 0 1.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--border-color-primary);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-image: url("../img/bg/advantage-cover.webp");
+    @include mixins.mobile-992 {
+        background-image: url("../img/bg/advantage-cover-small.webp");
+    }
+}
+
+.advantages-values {
+    dt {
+        margin-bottom: 1.2rem;
+        font-weight: 600;
+    }
+    dd {
+        margin-bottom: 2rem;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+html:not(.is_mobile) {
+    .advantages-container {
+        border: 1px solid var(--border-color-primary);
+        border-radius: 1rem;
+    }
+    .accordions-column {
+        flex: 0 0 45%;
+        margin: 0 0 -1px -1px;
+    }
+    .advantages-heading {
+        padding: clamp(1.1rem, 2vw, 2rem);
+        border-right: 1px solid var(--border-color-primary);
+    }
+}
+
+html.is_mobile {
+    .advantages-heading {
+        padding-bottom: 2rem;
+        text-align: center;
+    }
+}
