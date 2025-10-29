@@ -12,3 +12,5 @@ node_modules
 dist
 
 gulp.cmd
+
+*.mp4
