@@ -63,15 +63,7 @@
         }
         &__arrow {
             display: block;
-            position: relative;
             flex: 0 0 auto;
-            width: 1.5rem;
-            height: 1.5rem;
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: contain;
-            transform-origin: center;
-            background-image: url("../img/icons/map.svg");
             transition-duration: 0.5s;
             transition-property: transform;
         }
